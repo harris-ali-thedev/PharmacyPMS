@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>{% block title %}MediCare · Pharmacy & Store{% endblock %}</title><link rel="stylesheet" href="{% static 'app.css' %}"><script src="{% static 'app.js' %}" defer></script>{% block head %}{% endblock %}</head>
+<body>
+{% if user.is_authenticated %}
+<aside class="sidebar" id="sidebar"><a class="brand" href="/"><span class="brand-mark">✚</span><span>MediCare<small>PHARMACY & STORE</small></span></a>
+<div class="workspace-label">YOUR WORKSPACE</div><nav aria-label="Main navigation">
+{% if user.role != 'CASHIER' or user.is_superuser %}<a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>◫</span> Overview</a>{% endif %}
+<a href="/pos/" class="{% if '/pos/' in request.path %}active{% endif %}"><span>▣</span> Point of sale</a>
+<a href="/products/" class="{% if '/products/' in request.path %}active{% endif %}"><span>▦</span> Product catalog</a>
+<a href="/sales/" class="{% if '/sales/' in request.path %}active{% endif %}"><span>↗</span> Sales & receipts</a>
+{% if user.role != 'CASHIER' or user.is_superuser %}
+<div class="nav-label">OPERATIONS</div>
+<a href="/batches/" class="{% if '/batches/' in request.path %}active{% endif %}"><span>▤</span> Stock & expiry</a>
+<a href="/purchases/" class="{% if '/purchases/' in request.path %}active{% endif %}"><span>⇣</span> Purchase orders</a>
+<a href="/suppliers/" class="{% if '/suppliers/' in request.path %}active{% endif %}"><span>♧</span> Suppliers</a>
+<a href="/movements/" class="{% if '/movements/' in request.path %}active{% endif %}"><span>⇄</span> Stock ledger</a>
+{% endif %}
+{% if user.role == 'ADMIN' or user.role == 'PHARMACIST' or user.is_superuser %}<div class="nav-label">PHARMACY</div><a href="/prescriptions/" class="{% if '/prescriptions/' in request.path %}active{% endif %}"><span>℞</span> Prescriptions</a><a href="/patients/" class="{% if '/patients/' in request.path %}active{% endif %}"><span>♙</span> Patients</a>{% endif %}
+{% if user.role == 'ADMIN' or user.role == 'MANAGER' or user.is_superuser %}<a href="/reports/" class="{% if '/reports/' in request.path %}active{% endif %}"><span>▥</span> Reports</a>{% endif %}
+{% if user.role == 'ADMIN' or user.is_superuser %}<div class="nav-label">ADMINISTRATION</div><a href="/team/">♙ &nbsp; Team & roles</a><a href="/audit/">◷ &nbsp; Audit trail</a><a href="/settings/">⚙ &nbsp; Store settings</a>{% endif %}
+</nav><div class="sidebar-bottom"><span class="status-dot"></span> Single store <span class="muted">· Pakistan</span><small>All amounts in PKR</small></div></aside>
+<div class="app-shell"><header class="topbar"><button class="mobile-menu icon-button" id="menu-toggle" aria-label="Toggle navigation">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong>{% block breadcrumb %}Overview{% endblock %}</strong></div><div class="topbar-right"><span class="store-pill"><span class="status-dot"></span> {{ brand.name|default:'MediCare Pharmacy & Store' }}</span><span class="avatar">{{ user.username|first|upper }}</span><div class="user-meta"><strong>{{ user.get_full_name|default:user.username }}</strong><small>{{ user.get_role_display }}</small></div><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="icon-button" title="Sign out" aria-label="Sign out">↪</button></form></div></header>
+<main id="main-content">{% for message in messages %}<div class="notice success" role="status">{{ message }}</div>{% endfor %}{% block content %}{% endblock %}<footer class="page-footer">MediCare <span>Pharmacy & everyday inventory, together.</span><a href="/accounts/password/">Change password</a></footer></main></div>
+{% else %}{% block public_content %}{% endblock %}{% endif %}
+</body></html>

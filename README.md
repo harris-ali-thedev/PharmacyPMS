@@ -1,190 +1,95 @@
-# 💊 MediCare Pharmacy Management System (PMS)
+# MediCare — Pharmacy & Store
 
-A full-featured desktop application built with **Java 17 + JavaFX 21 + MySQL**, following the **MVC pattern**.
+A rebuilt, single-store web application for **Pakistan, PKR, and Asia/Karachi**. Medicines and general merchandise share a catalog, purchasing, batch inventory, POS, and stock ledger. Prescription-only medicines add patient-linked verification and quantity controls.
 
----
+Built with **Python 3.12, Django 5.2 LTS, Django REST Framework, PostgreSQL 17, semantic HTML, CSS, and JavaScript**. No frontend build server, JavaFX, or browser CDN dependency. Gunicorn and WhiteNoise serve the production application.
 
-## 📁 Project Structure
+## What works
 
-```
-PharmacyPMS/
-├── pom.xml                          Maven build file
-├── sql/
-│   └── schema.sql                   Database schema + sample data
-└── src/main/
-    ├── java/
-    │   ├── module-info.java
-    │   └── com/pharmacy/
-    │       ├── Main.java            Application entry point
-    │       ├── model/               Plain data objects (User, Medicine, Sale …)
-    │       ├── dao/                 JDBC data access layer
-    │       ├── service/             PDF invoice + Excel/PDF report export
-    │       ├── controller/          JavaFX event/business logic
-    │       ├── view/                JavaFX scene builders
-    │       └── util/                DB connection, session, audit, alerts
-    └── resources/
-        ├── db.properties            Database credentials (edit before running)
-        └── css/styles.css           Global stylesheet
-```
+- Named staff accounts, password verification, persistent login throttling, CSRF protection, session expiry, password changes, and four enforced roles.
+- Searchable catalog: SKU, unique optional barcode, medicine/general classification, category, unit, price, tax, reorder level, archive status.
+- Medicine expiry tracking; general goods can have no expiry. Batch receipts, counts, quarantine, expiry watch, and append-only application stock ledger.
+- Supplier directory, multi-line purchase orders, full atomic receipt, and cancellation of open orders.
+- POS product/barcode search, multi-product basket, server-authoritative prices/tax, manager discounts, cash/card/transfer recording, change calculation, and idempotent checkout.
+- First-expiring-first-out allocation across multiple lots, PostgreSQL row locks, nonnegative stock constraints, and transactional audit events.
+- Patient records, multi-item prescriptions, pharmacist/admin verification, validity checks, matching patients, and cumulative dispensing limits.
+- Immutable receipt price/name/cost snapshots, browser printing/PDF, full refunds into separate quarantine lots, and unchanged prescription allowances after refunds.
+- Net sales, refund-date accounting, gross profit based on sold batch costs, tax summaries, CSV export, audit history, and persisted store settings.
 
----
+This is a deployable, tested implementation, **not a certification of regulatory compliance or an already deployed production service**. Read [release boundaries](docs/OPERATIONS.md#release-boundaries) before real dispensing. Controlled drugs are explicitly blocked. Card and wallet payments are recorded after settlement on an external terminal; there is no payment gateway integration.
 
-## ⚙️ Prerequisites
-
-| Tool | Version |
-|------|---------|
-| JDK  | 17 or higher |
-| Maven | 3.8+ |
-| MySQL | 8.0+ (or MariaDB 10.6+) |
-
----
-
-## 🚀 Setup & Run
-
-### Step 1 — Create the database
-
-```sql
--- In MySQL Workbench or terminal:
-mysql -u root -p < sql/schema.sql
-```
-
-This creates `pharmacy_db`, all tables, and loads sample data including:
-- **Default admin:** username `admin`, password `admin123`
-- 10 sample medicines with batches
-- 3 sample suppliers
-
-### Step 2 — Configure database connection
-
-Edit `src/main/resources/db.properties`:
-
-```properties
-db.url=jdbc:mysql://localhost:3306/pharmacy_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-db.user=root
-db.password=YOUR_PASSWORD_HERE
-```
-
-### Step 3 — Build & Run
+## Run locally
 
 ```bash
-# Build
-mvn clean package -DskipTests
-
-# Run with JavaFX Maven plugin
-mvn javafx:run
-
-# OR run the shaded JAR directly
-java --module-path /path/to/javafx-sdk/lib \
-     --add-modules javafx.controls,javafx.fxml,javafx.graphics \
-     -jar target/PharmacyPMS-1.0.0.jar
+python -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
+export DEBUG=true
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py createsuperuser
+.venv/bin/python manage.py runserver
 ```
 
-> **Tip:** If using IntelliJ IDEA, import as a Maven project. The IDE will resolve JavaFX automatically.
+Open the displayed development-server address and sign in. A superuser has administrative access. For normal operators, use **Team & roles** to create named accounts. New stores start empty; no known default password is shipped.
 
----
+SQLite is supported only for local exploration. To develop/test concurrent workflows, export `DATABASE_URL=postgresql://.../medicare` before migration and startup. Production refuses SQLite and requires a unique `SECRET_KEY`.
 
-## 👥 User Roles
+Optional **fictional development inventory**, without overwriting existing data:
 
-| Role | Access |
-|------|--------|
-| **ADMIN** | Full access — users, settings, all reports, override limits |
-| **PHARMACIST** | Inventory, batch management, prescription verification |
-| **CASHIER** | POS / billing only |
+```bash
+# Supply a unique password securely in your environment; never commit it.
+export DEMO_ADMIN_PASSWORD='your-unique-strong-development-password'
+DEBUG=true .venv/bin/python manage.py seed_demo
+```
 
----
+This creates the `owner` account only if absent, three fictional suppliers, and twelve medicine/general SKUs. Existing passwords are never reset. Demo classification and zero tax defaults are not clinical or tax guidance.
 
-## 🧩 Modules
+## Verify
 
-### 🛒 Point of Sale (POS)
-- Search medicines by name, category, or barcode
-- Dynamic cart with +/− quantity controls
-- Percentage or fixed-amount discount (validated against 30% admin limit)
-- GST/Tax calculation
-- Payment modes: Cash, Card, Digital Wallet
-- Change calculator
-- Scheduled drug gate — requires verified prescription
-- **PDF invoice** generation on checkout (select save directory)
+```bash
+make test       # SQLite: database concurrency tests are explicitly skipped
+make lint
+make check
+# With PostgreSQL DATABASE_URL set: all tests, including real concurrent checkout
+DEBUG=true .venv/bin/python manage.py test --settings=config.test_settings
+```
 
-### 📦 Inventory Management
-- Full CRUD for medicines
-- Category, barcode, batch, expiry, reorder level tracking
-- Low-stock filter view
-- Stock auto-deducted atomically on each sale
+Browser smoke test (writes uniquely named test inventory and a sale; use a disposable development database):
 
-### 📊 Sales Reports
-- Daily / Weekly / Weekly-breakdown / Monthly stats
-- Recent sales table (last 100 transactions)
-- **Export to Excel (.xlsx)** via Apache POI
-- **Export to PDF** via iText
+```bash
+# Uses installed system Chromium. Install Chromium if your OS does not have it.
+export E2E_USERNAME=owner E2E_PASSWORD='your-development-password'
+.venv/bin/python tests/browser_smoke.py
+```
 
-### 💊 Prescriptions
-- Create & store patient/doctor records
-- Attach scanned image path
-- Pharmacist verification workflow
-- POS blocks scheduled drugs unless a verified prescription is linked
+Screenshots go to ignored `test-results/`. [Verification evidence](docs/VERIFICATION.md) records the checks actually run. CI runs the suite against PostgreSQL.
 
-### 🚚 Suppliers
-- Vendor directory with lead times
-- Deactivate (soft-delete) suppliers
-- Foreign key linked to medicines
+## Production
 
-### 👥 User Management (Admin only)
-- Create/edit users
-- Assign roles (ADMIN / PHARMACIST / CASHIER)
-- Password reset using BCrypt hashing
+Follow [operations and deployment](docs/OPERATIONS.md), including HTTPS, unique secrets, database backups, restore validation, role assignments, and local pharmacy/tax review. `Dockerfile` and `compose.yaml` are included; migrations are an explicit release step. Compose exposes the application on host loopback only for a trusted TLS reverse proxy.
 
-### 🔒 Security & Audit
-- BCrypt-hashed passwords (cost factor 12)
-- Prepared statements everywhere — SQL injection prevented
-- Silent audit log for logins, deletions, sales, password resets
+## Repository map
 
----
+```text
+accounts/             Custom user roles, authentication, throttling, auth audit
+config/               Settings, URL routing, WSGI, request logging/security headers
+store/
+  models.py            Catalog, lots, prescriptions, purchases, sales, ledgers
+  serializers.py       API input/output contracts and validation
+  api.py               Versioned REST endpoints and role enforcement
+  forms.py, web.py     Staff forms and server-rendered application
+  services/            Transactional inventory, sales, purchasing, Rx, reports
+  migrations/          Version-controlled database schema
+  management/commands/ Demo data and safe maintenance
+static/                Responsive CSS and local browser JavaScript
+templates/            Staff UI, login, forms, receipts, error pages
+ tests/                Business, API, authorization, concurrency, browser checks
+ deploy/               PostgreSQL application-role initialization
+ docs/                 Audit, architecture, API, schema, deployment, verification
+```
 
-## 🗄️ Database Tables
+- [Original project audit and merge/removal decisions](docs/AUDIT.md)
+- [Architecture, schema, invariants, and permissions](docs/ARCHITECTURE.md)
+- [API contract and examples](docs/API.md)
+- [Original file-by-file inventory](docs/LEGACY_FILES.md)
 
-| Table | Purpose |
-|-------|---------|
-| `users` | Auth + RBAC |
-| `medicines` | Product catalogue |
-| `batches` | FIFO batch/expiry tracking |
-| `suppliers` | Vendor CRM |
-| `sales` | Sale header (totals, payment) |
-| `sale_items` | Line items per sale |
-| `prescriptions` | Rx records with verification |
-| `purchase_orders` | (schema ready for v2) |
-| `audit_log` | Immutable action trail |
-
----
-
-## 🔮 Roadmap (v2.0)
-- [ ] Customer loyalty points
-- [ ] Barcode scanner hardware integration (HID input)
-- [ ] AI demand prediction (ML module)
-- [ ] Automated daily backup scheduler
-- [ ] Mobile companion app
-
----
-
-## 📦 Key Dependencies
-
-| Library | Purpose |
-|---------|---------|
-| JavaFX 21 | UI framework |
-| MySQL Connector/J 8.3 | JDBC driver |
-| BCrypt (Favre) | Password hashing |
-| iText 5.5 | PDF invoice/report generation |
-| Apache POI 5.2 | Excel (.xlsx) export |
-| JFreeChart 1.5 | Chart support |
-| SLF4J | Logging facade |
-
----
-
-## 🐛 Troubleshooting
-
-**"Cannot connect to database"**
-→ Verify MySQL is running, credentials in `db.properties` are correct, and `pharmacy_db` exists.
-
-**"Module not found" errors**
-→ Ensure JDK 17+ is selected in project settings. Add `--add-opens` flags if needed for older runtimes.
-
-**Blank invoice PDF**
-→ iText requires write permission to the chosen directory. Run as administrator if necessary.
+The previous desktop app is removed from the active tree. Its original files remain in Git history at `f0557ca59b0aad388a70dc69882a59902ac0b6ce`. No existing MySQL database was converted or deleted. Legacy onboarding scripts outside the repository are superseded by the new web workflow.

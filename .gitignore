@@ -1,2 +1,12 @@
-# Project exclude paths
-/target/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+*.sqlite3
+*.sqlite3-*
+staticfiles/
+test-results/
+playwright-report/
+.ruff_cache/
+backups/
+target/

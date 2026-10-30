@@ -1,0 +1,1655 @@
+[
+  {
+    "path": "src/main/java/com/pharmacy/Main.java",
+    "lines": 39,
+    "types": [
+      "Main"
+    ],
+    "references": [
+      "LoginView"
+    ],
+    "sql_tables": [],
+    "sha": "89bd91fe4a8f0f7d257da6189a7f69a732118aa30c139116c0e5ef5dcb75b513"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/controller/InventoryController.java",
+    "lines": 178,
+    "types": [
+      "InventoryController"
+    ],
+    "references": [
+      "CheckBox",
+      "GridPane",
+      "Insets",
+      "Label",
+      "Medicine",
+      "MedicineDAO",
+      "SupplierDAO",
+      "TextField"
+    ],
+    "sql_tables": [],
+    "sha": "a9187db84233a1744cfe053da61c160c6a0ed082ebc4b7632cf390af708a4515"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/controller/LoginController.java",
+    "lines": 91,
+    "types": [
+      "LoginController"
+    ],
+    "references": [
+      "MainView",
+      "UserDAO"
+    ],
+    "sql_tables": [],
+    "sha": "afad4f50d8834df457f5cd4b128d0df901cd9a410eb2dcc40db5fdc69323b7f6"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/controller/POSController.java",
+    "lines": 508,
+    "types": [
+      "POSController"
+    ],
+    "references": [
+      "CartItem",
+      "DrugSafetyService",
+      "InvoicePreview",
+      "InvoiceService",
+      "LabelPrintingService",
+      "MedicineDAO",
+      "PauseTransition",
+      "PrescriptionDAO",
+      "PrescriptionService",
+      "Sale",
+      "SaleDAO",
+      "SaleItem",
+      "StringBuilder"
+    ],
+    "sql_tables": [],
+    "sha": "d00ab38418183313bfd48265d8b8067ae91112e48364b95e8c9fd0499088f83b"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/BatchDAO.java",
+    "lines": 101,
+    "types": [
+      "BatchDAO"
+    ],
+    "references": [
+      "Batch"
+    ],
+    "sql_tables": [
+      "batches",
+      "medicines"
+    ],
+    "sha": "45c6f6ce351967a8cff461a39efe044dfa1529e5de9f7e146b0053d7185ad954"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/MedicineDAO.java",
+    "lines": 144,
+    "types": [
+      "MedicineDAO"
+    ],
+    "references": [
+      "Medicine"
+    ],
+    "sql_tables": [
+      "medicines",
+      "suppliers"
+    ],
+    "sha": "0debbe52c79e62736aadf15d37182cab7b10a3e2d2cf24cae977c05c3fffaea3"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/NarcoticRegisterDAO.java",
+    "lines": 157,
+    "types": [
+      "NarcoticRegisterDAO"
+    ],
+    "references": [
+      "NarcoticRegisterEntry",
+      "SQLException"
+    ],
+    "sql_tables": [
+      "narcotic_register",
+      "users"
+    ],
+    "sha": "928bafe1e2126de9bbd3c11dd60a02d4ca714be552ee8e4d64f5382d51d4b539"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/PatientDAO.java",
+    "lines": 301,
+    "types": [
+      "PatientDAO"
+    ],
+    "references": [
+      "Patient",
+      "SQLException"
+    ],
+    "sql_tables": [
+      "patients"
+    ],
+    "sha": "f382037b296d1e3f799a6c02f47a14fe770e5593c2fed01c11b7ce2620214bc5"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/PrescriptionDAO.java",
+    "lines": 82,
+    "types": [
+      "PrescriptionDAO"
+    ],
+    "references": [
+      "Prescription"
+    ],
+    "sql_tables": [
+      "prescriptions",
+      "users"
+    ],
+    "sha": "fc558b741baa640a92062b1117404fbcca7c9a8b9cf18c27e8d134f7832de243"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/PurchaseOrderDAO.java",
+    "lines": 229,
+    "types": [
+      "PurchaseOrderDAO",
+      "POItem"
+    ],
+    "references": [
+      "BatchDAO",
+      "Medicine",
+      "MedicineDAO",
+      "POItem",
+      "SQLException"
+    ],
+    "sql_tables": [
+      "medicines",
+      "po_items",
+      "purchase_orders",
+      "suppliers",
+      "users"
+    ],
+    "sha": "312f810f7c40ce8ebad781c59a79f246bc5e438e1b33c1ef8a7b129773db1113"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/SaleDAO.java",
+    "lines": 261,
+    "types": [
+      "SaleDAO"
+    ],
+    "references": [
+      "BatchDAO",
+      "IllegalArgumentException",
+      "MedicineDAO",
+      "Sale",
+      "SaleItem"
+    ],
+    "sql_tables": [
+      "Batch",
+      "medicines",
+      "sale_items",
+      "sales",
+      "users"
+    ],
+    "sha": "7513302c2271002d683449c6736f351bd563c12f9e6b8007662d2049bb459b94"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/SupplierDAO.java",
+    "lines": 160,
+    "types": [
+      "SupplierDAO"
+    ],
+    "references": [
+      "SQLException",
+      "Supplier"
+    ],
+    "sql_tables": [
+      "po_items",
+      "purchase_orders",
+      "suppliers"
+    ],
+    "sha": "859e44ee615108807a19b167b40bbc8655ceb2c9df0f55ce16e0f8ac54b494d1"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/dao/UserDAO.java",
+    "lines": 325,
+    "types": [
+      "UserDAO",
+      "metadata",
+      "failed",
+      "successful",
+      "AccountLockedException"
+    ],
+    "references": [
+      "AccountLockedException",
+      "IllegalArgumentException",
+      "SQLException",
+      "SecurityException",
+      "User"
+    ],
+    "sql_tables": [
+      "last",
+      "users"
+    ],
+    "sha": "7c056c52cdf6c8bb36076f5f822c904232c4c243425bb9df2aedd8f05205f843"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Batch.java",
+    "lines": 42,
+    "types": [
+      "Batch"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "beca75381ffa625f87706b069158f5103f2f5b25236a3508692709613a2497d9"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/CartItem.java",
+    "lines": 40,
+    "types": [
+      "CartItem"
+    ],
+    "references": [
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty"
+    ],
+    "sql_tables": [],
+    "sha": "e62b4e5d4ff278c5b13a77d47ec86869b93e8042848f141e714c3dd1b5054b07"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/DrugInteractionAlert.java",
+    "lines": 103,
+    "types": [
+      "DrugInteractionAlert",
+      "Severity",
+      "AlertType"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "14d1bef39a79d9c899e29386de5fa3248f29211c7fa16d1ac474766ff3637ba8"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Medicine.java",
+    "lines": 152,
+    "types": [
+      "Medicine"
+    ],
+    "references": [
+      "SimpleBooleanProperty",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty"
+    ],
+    "sql_tables": [],
+    "sha": "ec3e94d4d2c01d22803085b06d142b968867e081b16a43b734b8bd01b304868c"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/NarcoticRegisterEntry.java",
+    "lines": 124,
+    "types": [
+      "NarcoticRegisterEntry"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "d5466aa27166872bb05caf953365aa988952f5a3ba3de9f4bcc1a39883b5c8e7"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Patient.java",
+    "lines": 192,
+    "types": [
+      "Patient"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "bc5ca07192a8cdb75866aec9efb74d63255bd7329d72334e7d040f40ae839107"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Prescription.java",
+    "lines": 233,
+    "types": [
+      "Prescription",
+      "PrescriptionItem"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "3ea832dd95bbf39011640e80d0dd0ff88410f8a23f5f1645849eb4d7339f824a"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Sale.java",
+    "lines": 129,
+    "types": [
+      "Sale"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "36d0233ceccad5605a284733c22c85d72981999d1d1bb3976fe2086b5c9fe23f"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/SaleItem.java",
+    "lines": 43,
+    "types": [
+      "SaleItem"
+    ],
+    "references": [],
+    "sql_tables": [
+      "batch"
+    ],
+    "sha": "4899b10257e683c2cba6221903328fa28e55c5649152c8ea3ac9539f9a7f09f6"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/ShiftSession.java",
+    "lines": 92,
+    "types": [
+      "ShiftSession"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "ec50f126518dad8dd64a8c74fb03a899d0c1f7e7bf23534c303f9e77578c47b9"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/Supplier.java",
+    "lines": 43,
+    "types": [
+      "Supplier"
+    ],
+    "references": [
+      "SimpleBooleanProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty"
+    ],
+    "sql_tables": [],
+    "sha": "113b270acfcdc1b64e5def55dca712519f37a34f025c9808c71baad141a69909"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/User.java",
+    "lines": 158,
+    "types": [
+      "User"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "6a011bd816e32fe9263b5021721f7382a48bb6daadeca342c748d5321fe3faa0"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/enums/BloodGroup.java",
+    "lines": 3,
+    "types": [
+      "BloodGroup"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "a0fd789d9d4ec48801cb1f986dd569c9ccffbaba97df724b48c442e2a88719d7"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/model/enums/Gender.java",
+    "lines": 3,
+    "types": [
+      "Gender"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "84dc9b430449022e8fcc6db948110faf15d4f79406cd4cba6a998fde92a83f41"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/scheduler/BackupScheduler.java",
+    "lines": 113,
+    "types": [
+      "BackupScheduler"
+    ],
+    "references": [
+      "File",
+      "IOException",
+      "ProcessBuilder",
+      "Properties",
+      "String"
+    ],
+    "sql_tables": [
+      "URL"
+    ],
+    "sha": "547fb9ab0744dc10e2f7e58cd5a8352e76ef09edaf60f3e2006a42ba0d3de701"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/scheduler/PharmacyScheduler.java",
+    "lines": 183,
+    "types": [
+      "PharmacyScheduler"
+    ],
+    "references": [
+      "InventoryService",
+      "NotificationService",
+      "PharmacyScheduler",
+      "Thread"
+    ],
+    "sql_tables": [
+      "Main",
+      "audit_log"
+    ],
+    "sha": "0d8d8983000d5163eb2cae694ad85ab47bcafade3b0e3a92ec675ecbcf047d3b"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/BackupService.java",
+    "lines": 91,
+    "types": [
+      "BackupService"
+    ],
+    "references": [
+      "BackupService",
+      "File",
+      "ProcessBuilder",
+      "Properties",
+      "Thread"
+    ],
+    "sql_tables": [
+      "URL"
+    ],
+    "sha": "f9902fc56839da4a3a2ccb993412b4ed3548b36ac254afb99594878aa5791267"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/DrugSafetyService.java",
+    "lines": 338,
+    "types": [
+      "already",
+      "DrugSafetyService",
+      "allergies",
+      "matching"
+    ],
+    "references": [
+      "DrugInteractionAlert",
+      "Medicine",
+      "PatientDAO"
+    ],
+    "sql_tables": [
+      "drug_allergy_cross_refs",
+      "drug_interactions",
+      "medicines",
+      "rash",
+      "sale_items",
+      "sales",
+      "suppliers",
+      "the"
+    ],
+    "sha": "d07006b43723fd33d548015728c16e0d41735ef76a5f977d4dbec34cae46aa57"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/InventoryService.java",
+    "lines": 350,
+    "types": [
+      "InventoryService",
+      "ExpiryAlert",
+      "Urgency",
+      "InventoryValuation",
+      "StockCountResult",
+      "SlowMover",
+      "SuggestedPO",
+      "LineItem"
+    ],
+    "references": [
+      "BatchDAO",
+      "ExpiryAlert",
+      "InventoryValuation",
+      "MedicineDAO",
+      "PurchaseOrderDAO",
+      "SQLException",
+      "SlowMover",
+      "StockCountResult",
+      "SuggestedPO",
+      "SupplierDAO"
+    ],
+    "sql_tables": [
+      "a",
+      "batches",
+      "medicines",
+      "sale_items",
+      "sales",
+      "stock",
+      "the"
+    ],
+    "sha": "bbbf7adf06219e8fefc1dd704fc6ddae74137c790fadb384472ef0368bcb4047"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/InvoicePreview.java",
+    "lines": 282,
+    "types": [
+      "InvoicePreview"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "ColumnConstraints",
+      "File",
+      "FileChooser",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "InvoiceService",
+      "Label",
+      "Region",
+      "Scene",
+      "ScrollPane",
+      "Separator",
+      "Stage",
+      "Text",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "c9e41bfab262020c6a3c19de30fb6040c7bc2a61dd22b6a84fdd1cda1c6d19a7"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/InvoiceService.java",
+    "lines": 169,
+    "types": [
+      "InvoiceService"
+    ],
+    "references": [
+      "BaseColor",
+      "Chunk",
+      "Document",
+      "File",
+      "FileOutputStream",
+      "Font",
+      "IOException",
+      "IllegalArgumentException",
+      "LineSeparator",
+      "Paragraph",
+      "PdfPCell",
+      "PdfPTable",
+      "Phrase"
+    ],
+    "sql_tables": [],
+    "sha": "74de028012c2c2e00b88f448d576a3ed3dfecabd79d766bb18142aa358c7cbda"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/LabelPrintingService.java",
+    "lines": 189,
+    "types": [
+      "LabelPrintingService"
+    ],
+    "references": [
+      "Barcode128",
+      "Document",
+      "File",
+      "FileOutputStream",
+      "Font",
+      "Paragraph",
+      "PdfPCell",
+      "PdfPTable",
+      "Phrase",
+      "Rectangle"
+    ],
+    "sql_tables": [],
+    "sha": "e65d1189bda6caf6ee056fd06935706994c4288cba8b32067c8a4bd1d6d5aea5"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/NotificationService.java",
+    "lines": 319,
+    "types": [
+      "NotificationService",
+      "NotificationType",
+      "NotificationPriority"
+    ],
+    "references": [],
+    "sql_tables": [
+      "batches",
+      "medicines",
+      "notifications",
+      "patients",
+      "prescriptions",
+      "sale_items",
+      "sales",
+      "suppliers"
+    ],
+    "sha": "a383d4487d1f903d29220b6d46632c9ddec458b6ea19c1493d350ab4db7f9b6e"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/PrescriptionService.java",
+    "lines": 237,
+    "types": [
+      "PrescriptionService",
+      "DispensingLabel",
+      "PrescriptionException"
+    ],
+    "references": [
+      "DrugSafetyService",
+      "LabelPrintingService",
+      "NarcoticRegisterDAO",
+      "NarcoticRegisterEntry",
+      "PatientDAO",
+      "PrescriptionDAO",
+      "PrescriptionException",
+      "SQLException",
+      "SecurityException"
+    ],
+    "sql_tables": [
+      "controllers",
+      "prescription",
+      "prescriptions",
+      "validity"
+    ],
+    "sha": "284559bc683f985b3a79cff01570bcbddcc86d965e486f331872fec4d54f564b"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/ReportExportService.java",
+    "lines": 246,
+    "types": [
+      "ReportExportService"
+    ],
+    "references": [
+      "BaseColor",
+      "Document",
+      "FileOutputStream",
+      "Paragraph",
+      "PdfPCell",
+      "PdfPTable",
+      "Phrase",
+      "XSSFWorkbook"
+    ],
+    "sql_tables": [],
+    "sha": "48e4fe5e10090162953abad65821f1400575c89f191f8c7e666e31c68041a22a"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/ReportingService.java",
+    "lines": 319,
+    "types": [
+      "ReportingService"
+    ],
+    "references": [],
+    "sql_tables": [
+      "batches",
+      "medicines",
+      "prescriptions",
+      "sale_items",
+      "sales",
+      "users",
+      "v1"
+    ],
+    "sha": "9d036b19adc653e8c53d0c5388c274e379e6d6ee72cbb7203d4db44404020b95"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/service/ShiftSessionService.java",
+    "lines": 199,
+    "types": [
+      "physical",
+      "ShiftSessionService"
+    ],
+    "references": [
+      "IllegalStateException",
+      "SQLException",
+      "ShiftSession"
+    ],
+    "sql_tables": [
+      "sales",
+      "shift_sessions"
+    ],
+    "sha": "17636065490b97a3d560d29be08cc4c391ecebe3b04e8e31d6f3551a23d32797"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/AlertUtil.java",
+    "lines": 34,
+    "types": [
+      "AlertUtil"
+    ],
+    "references": [
+      "Alert"
+    ],
+    "sql_tables": [],
+    "sha": "69b48128b01651f9509d387305ff853e13327c12852da68102df67909bdee397"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/AppConstants.java",
+    "lines": 90,
+    "types": [
+      "AppConstants"
+    ],
+    "references": [],
+    "sql_tables": [],
+    "sha": "c1090d9e97891830adbddf30af3eb7ece001433ee92a19d7acbde021d8eebe28"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/AuditLogger.java",
+    "lines": 163,
+    "types": [
+      "AuditLogger"
+    ],
+    "references": [
+      "Thread",
+      "User"
+    ],
+    "sql_tables": [
+      "HttpServletRequest",
+      "SessionManager",
+      "audit_log"
+    ],
+    "sha": "f046f3f37185a0181bdb504988c5398c5b2ae38ef3556c188cd672c043187c4e"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/DatabaseConnection.java",
+    "lines": 66,
+    "types": [
+      "DatabaseConnection"
+    ],
+    "references": [
+      "DatabaseConnection",
+      "Properties",
+      "SQLException"
+    ],
+    "sql_tables": [
+      "db"
+    ],
+    "sha": "3062085e33fc30e50779f9e5a6a665dcf964e0ce58dcdd77bb8d9c904df0280c"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/InputValidator.java",
+    "lines": 77,
+    "types": [
+      "for",
+      "InputValidator"
+    ],
+    "references": [
+      "IllegalArgumentException"
+    ],
+    "sql_tables": [],
+    "sha": "57dddde43f6011fada9ff669aa9a0e1c39d071c2c953b6c48264d03fa0f291e6"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/util/SessionManager.java",
+    "lines": 168,
+    "types": [
+      "SessionManager"
+    ],
+    "references": [
+      "SecurityException",
+      "SessionManager"
+    ],
+    "sql_tables": [
+      "every"
+    ],
+    "sha": "d914d7d1edb4e3d8cbe384efaaa875ae1676fbaaec0421a2c378809dd00027c2"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/AppUIManager.java",
+    "lines": 297,
+    "types": [
+      "AppUIManager"
+    ],
+    "references": [
+      "AppUIManager",
+      "Button",
+      "DatePicker",
+      "Insets",
+      "Label",
+      "PasswordField",
+      "Region",
+      "ScrollPane",
+      "TextArea",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "07d47a06432deb3ae6662e60fdb76dafb003dd07648e8ecaed87c66cbe44535d"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/DashboardView.java",
+    "lines": 664,
+    "types": [
+      "DashboardView"
+    ],
+    "references": [
+      "Button",
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "MedicineDAO",
+      "NumberFormatException",
+      "Pane",
+      "Region",
+      "SaleDAO",
+      "ScrollPane",
+      "ShiftSessionService",
+      "StackPane",
+      "TextInputDialog",
+      "VBox"
+    ],
+    "sql_tables": [
+      "plain"
+    ],
+    "sha": "0d927cc112c065bb118fa075856893c8ad10e742012b9d556e79f97527298ab3"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/LoginView.java",
+    "lines": 340,
+    "types": [
+      "LoginView"
+    ],
+    "references": [
+      "Background",
+      "BackgroundFill",
+      "Button",
+      "HBox",
+      "Label",
+      "LoginController",
+      "PasswordField",
+      "Region",
+      "Scene",
+      "StackPane",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "0"
+    ],
+    "sha": "781c705c1380a391a2c57eac4f6a8d00e5898dfa4c99e10aaab2feaf6268895c"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/MainView.java",
+    "lines": 310,
+    "types": [
+      "MainView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "HBox",
+      "Insets",
+      "Label",
+      "LoginView",
+      "Region",
+      "Scene",
+      "ScrollPane",
+      "TranslateTransition",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "a68543e0e9bfe166082c7a3e6ae4355099687f562110c0a0f02e16a37d842e3a"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/POSView.java",
+    "lines": 397,
+    "types": [
+      "POSView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "ContextMenu",
+      "HBox",
+      "Insets",
+      "Label",
+      "MedicineDAO",
+      "MenuItem",
+      "POSController",
+      "Region",
+      "ScrollPane",
+      "Separator",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "43925e696af3d9bbcdbfa68ab17c9ebfc755c1b553a2f1e1d0a6abae007a4771"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/ViewManager.java",
+    "lines": 111,
+    "types": [
+      "ViewManager"
+    ],
+    "references": [
+      "DashboardView",
+      "LoginView",
+      "POSView",
+      "ViewManager"
+    ],
+    "sql_tables": [],
+    "sha": "9a5ec1ccd781f24de25b79017e5c9b0bc795451483088aa537db9f84320b4611"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/admin/AuditLogView.java",
+    "lines": 393,
+    "types": [
+      "AuditLogView",
+      "AuditLogEntry"
+    ],
+    "references": [
+      "AuditLogEntry",
+      "BorderPane",
+      "Button",
+      "DatePicker",
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "StringBuilder",
+      "TextArea",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "audit_log"
+    ],
+    "sha": "067b44690fcf35fb7ecafd4afd68a7faf04c54b93f2fe969bf2b783b42369a00"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/admin/BackupRestoreView.java",
+    "lines": 541,
+    "types": [
+      "BackupRestoreView",
+      "BackupFileEntry"
+    ],
+    "references": [
+      "BackupFileEntry",
+      "BorderPane",
+      "Button",
+      "DirectoryChooser",
+      "FileChooser",
+      "HBox",
+      "IOException",
+      "Insets",
+      "Label",
+      "ProcessBuilder",
+      "Properties",
+      "Region",
+      "SimpleLongProperty",
+      "SimpleStringProperty",
+      "String",
+      "TextArea",
+      "TextField",
+      "Thread",
+      "VBox"
+    ],
+    "sql_tables": [
+      "a"
+    ],
+    "sha": "e7867b96a44edef09777610731ab3c5ce2f37dd6a7230696ba09ae91a16f48b6"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/admin/UserManagementView.java",
+    "lines": 314,
+    "types": [
+      "UserManagementView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "CheckBox",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "PasswordField",
+      "SimpleBooleanProperty",
+      "SimpleStringProperty",
+      "TextField",
+      "TextInputDialog",
+      "User",
+      "UserDAO",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "c5a3df459435423b4fe4d2d65522f97b3cb24652ba51b5da67cbcb81ce395afb"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/billing/BillingView.java",
+    "lines": 334,
+    "types": [
+      "BillingView"
+    ],
+    "references": [
+      "BarcodeScannerDialog",
+      "CartItem",
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "MedicineDAO",
+      "PatientDAO",
+      "Region",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "10907699932d5ff6717958b9c0b8261c1ad74055f0cd76e86dc633c67e6fa451"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/billing/InsuranceClaimView.java",
+    "lines": 97,
+    "types": [
+      "InsuranceClaimView"
+    ],
+    "references": [
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "ScrollPane",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "a269dab4b4edfb05d56011d6fbcb37909f13d25fee4e5bd0bfba34505068cc9c"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/billing/InvoiceView.java",
+    "lines": 64,
+    "types": [
+      "InvoiceView"
+    ],
+    "references": [
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "ScrollPane",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "6d1cdb571a833f9372bda75d829714c2d608061c2b25d579f8f83250754ea1f1"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/components/AlertPanel.java",
+    "lines": 127,
+    "types": [
+      "AlertPanel",
+      "Severity",
+      "AlertItem"
+    ],
+    "references": [
+      "AlertItem",
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "8e66d373edb8c11f45df64d7dfa752d6b2ed9d55de0b3d3c7c1b8e309ab153cd"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/components/CustomTable.java",
+    "lines": 216,
+    "types": [
+      "CustomTable"
+    ],
+    "references": [
+      "Alert",
+      "FileChooser",
+      "FileOutputStream",
+      "HBox",
+      "Insets",
+      "Label",
+      "MessageDialog",
+      "OutputStreamWriter",
+      "PrintWriter",
+      "Region",
+      "StringBuilder",
+      "TextField"
+    ],
+    "sql_tables": [
+      "outside",
+      "row"
+    ],
+    "sha": "74cf52812f802ed561daa747dbf813690a46af89f0338750657764b28390c0ce"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/components/SearchBar.java",
+    "lines": 65,
+    "types": [
+      "SearchBar"
+    ],
+    "references": [
+      "Button",
+      "SearchBar",
+      "TextField"
+    ],
+    "sql_tables": [],
+    "sha": "7e5ddfba816fb73599d4d84e4761c862aa8cb6e41a99fb077654dd3dc6e66c74"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/dialogs/BarcodeScannerDialog.java",
+    "lines": 114,
+    "types": [
+      "BarcodeScannerDialog"
+    ],
+    "references": [
+      "Button",
+      "HBox",
+      "Insets",
+      "Label",
+      "Scene",
+      "Stage",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "a"
+    ],
+    "sha": "8388f93e5d0517eb00081e7fed959a01d40d6ab345f21b497cd04bc8869ed7ee"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/dialogs/ConfirmationDialog.java",
+    "lines": 117,
+    "types": [
+      "ConfirmationDialog"
+    ],
+    "references": [
+      "Button",
+      "ConfirmationDialog",
+      "HBox",
+      "Insets",
+      "Label",
+      "Scene",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "9a5c5e7d47c4be88c533df102747628235b1ebf704665437189ac86c849cb60e"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/dialogs/MessageDialog.java",
+    "lines": 120,
+    "types": [
+      "MessageDialog",
+      "Type"
+    ],
+    "references": [
+      "Button",
+      "HBox",
+      "Insets",
+      "Label",
+      "MessageDialog",
+      "Scene",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "619e37027fa6b78c6a1a405c71e9aa21242ffa77e744afb9aa183425f3c6ed52"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/inventory/AddStockView.java",
+    "lines": 505,
+    "types": [
+      "AddStockView"
+    ],
+    "references": [
+      "BatchDAO",
+      "BorderPane",
+      "Button",
+      "DatePicker",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "InventoryController",
+      "Label",
+      "MedicineDAO",
+      "NumberFormatException",
+      "PurchaseOrderDAO",
+      "Region",
+      "SQLException",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "TextArea",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "batches",
+      "medicine",
+      "medicines",
+      "the"
+    ],
+    "sha": "74abc70224523bf8f1a2c8f446555705677c2ba30a90a5e9bd5c498c917ad188"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/inventory/ExpiryAlertView.java",
+    "lines": 445,
+    "types": [
+      "ExpiryAlertView",
+      "ExpiryAlertRow"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "ExpiryAlertRow",
+      "HBox",
+      "Insets",
+      "InventoryService",
+      "Label",
+      "MedicineDAO",
+      "Region",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "TextInputDialog",
+      "VBox"
+    ],
+    "sql_tables": [
+      "dispensing",
+      "this"
+    ],
+    "sha": "c9665543b6ee6b5bd5f4b8ffe3a19db1c4f22672ac1881d06a6dbf67aba92752"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/inventory/InventoryView.java",
+    "lines": 242,
+    "types": [
+      "InventoryView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "DirectoryChooser",
+      "HBox",
+      "Insets",
+      "InventoryController",
+      "Label",
+      "Region",
+      "ReportExportService",
+      "SimpleBooleanProperty",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "a4cc2b4f446cc35aa5bfac8c733107b28dac1c3effe3e235e1cc4c9dd592eab4"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/inventory/StockReorderView.java",
+    "lines": 388,
+    "types": [
+      "StockReorderView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "HBox",
+      "IllegalStateException",
+      "Insets",
+      "InventoryService",
+      "Label",
+      "Region",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "ab0d3e9961a97a3f1df0625e257e94b650c2f14cdf66c3369ca95bdf013a41c6"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/patient/PatientFormDialog.java",
+    "lines": 252,
+    "types": [
+      "PatientFormDialog"
+    ],
+    "references": [
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "Patient",
+      "PatientDAO",
+      "Region",
+      "Scene",
+      "ScrollPane",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [
+      "Patient",
+      "textarea"
+    ],
+    "sha": "f3487d94351761478dc4855471e3cc65455030490a9b1bfbda7198641f5817b4"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/patient/PatientHistoryView.java",
+    "lines": 571,
+    "types": [
+      "PatientHistoryView",
+      "PrescriptionHistoryRow",
+      "SaleHistoryRow"
+    ],
+    "references": [
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "PrescriptionHistoryRow",
+      "Region",
+      "SaleHistoryRow",
+      "Scene",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [
+      "medicines",
+      "prescription_items",
+      "prescriptions",
+      "sale_items",
+      "sales"
+    ],
+    "sha": "cd4e42297eba87cbd63a5883ebdec5a5bf068594cd9cc5664a105f23e12fdc10"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/patient/PatientManagementView.java",
+    "lines": 266,
+    "types": [
+      "PatientManagementView"
+    ],
+    "references": [
+      "HBox",
+      "Insets",
+      "Label",
+      "PatientDAO",
+      "PatientFormDialog",
+      "PatientHistoryView",
+      "Region",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "63eb43464c7d273ac14f11145953a0c66a70c18062611cc148db997beb1090d8"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/prescription/DrugInteractionView.java",
+    "lines": 162,
+    "types": [
+      "DrugInteractionView"
+    ],
+    "references": [
+      "DrugSafetyService",
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "Scene",
+      "ScrollPane",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "f592dffb55754f13dfe3f05b6ba39d20de5d4388269849c663b7f5acc0dd123f"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/prescription/PrescriptionFormView.java",
+    "lines": 141,
+    "types": [
+      "PrescriptionFormView"
+    ],
+    "references": [
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "PatientDAO",
+      "Prescription",
+      "PrescriptionDAO",
+      "Scene",
+      "ScrollPane",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "330139d89a23bdf808dd28618e52a644e51a77d29138660f53ab5d5cb9130361"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/prescription/PrescriptionView.java",
+    "lines": 200,
+    "types": [
+      "PrescriptionView"
+    ],
+    "references": [
+      "DrugInteractionView",
+      "HBox",
+      "Insets",
+      "Label",
+      "PrescriptionDAO",
+      "PrescriptionFormView",
+      "Region",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "078c83e2d50a05c54a9691b0ab2c73faf4ca2d91a0c76b80e64fc9f8c8e201e8"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/reports/ExpiryReportView.java",
+    "lines": 123,
+    "types": [
+      "ExpiryReportView"
+    ],
+    "references": [
+      "HBox",
+      "Insets",
+      "InventoryService",
+      "Label",
+      "Region",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "VBox"
+    ],
+    "sql_tables": [
+      "expired"
+    ],
+    "sha": "b31aae43ee348705f0e81599328b2b0f40df5aee13851fcd4ecb3ecef025a0df"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/reports/InvoiceHistoryView.java",
+    "lines": 311,
+    "types": [
+      "InvoiceHistoryView"
+    ],
+    "references": [
+      "Button",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "InvoiceService",
+      "Label",
+      "Region",
+      "SaleDAO",
+      "Scene",
+      "SimpleStringProperty",
+      "Stage",
+      "VBox"
+    ],
+    "sql_tables": [
+      "Date"
+    ],
+    "sha": "a070d8e2233f203cbd4a6972f21d2684c3e6a5443a5c68e4b8f7a76d4bbc3795"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/reports/ProfitMarginView.java",
+    "lines": 115,
+    "types": [
+      "ProfitMarginView"
+    ],
+    "references": [
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "ReportingService",
+      "ScrollPane",
+      "SimpleStringProperty",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "1c1780c4f9f11d3be1f841765519b4e630e173103243e80de55398f250df7eaf"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/reports/ReportsDashboardView.java",
+    "lines": 107,
+    "types": [
+      "ReportsDashboardView"
+    ],
+    "references": [
+      "HBox",
+      "Insets",
+      "Label",
+      "ScrollPane",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "5216d9495f11d88ff09b34dbfc925a54d54219189b9f08b1fd8a95c3d9c44e31"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/reports/SalesReportView.java",
+    "lines": 240,
+    "types": [
+      "SalesReportView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "DirectoryChooser",
+      "HBox",
+      "Insets",
+      "Label",
+      "Region",
+      "ReportExportService",
+      "SaleDAO",
+      "ScrollPane",
+      "SimpleDoubleProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "0bdceb2839d66d435bd6ccd5f7eb9088ae6fd1a35103f57576d3ca9568f7d68b"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/settings/SettingsView.java",
+    "lines": 294,
+    "types": [
+      "SettingsView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "CheckBox",
+      "ColumnConstraints",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "PasswordField",
+      "Region",
+      "ScrollPane",
+      "Separator",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "Security"
+    ],
+    "sha": "a2f92718f8416ea4b1034e3ff8c824a7b8a329d0bd6029475f4cd5659cb6ed28"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/supplier/PurchaseOrderView.java",
+    "lines": 783,
+    "types": [
+      "PurchaseOrderView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "ButtonType",
+      "DatePicker",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "NumberFormatException",
+      "PurchaseOrderDAO",
+      "Region",
+      "SimpleStringProperty",
+      "SupplierDAO",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [
+      "Stock"
+    ],
+    "sha": "b41fbaf0ff674e63a8965279882bbab2948be1c891b12ce50cd54409744f9d18"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/supplier/SupplierManagementView.java",
+    "lines": 201,
+    "types": [
+      "SupplierManagementView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "SimpleBooleanProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "Supplier",
+      "SupplierDAO",
+      "TextArea",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "5f873d91df4088f242ba07a6fa600a7917ba71108ec0431a6b10c600f2822400"
+  },
+  {
+    "path": "src/main/java/com/pharmacy/view/supplier/SupplierView.java",
+    "lines": 201,
+    "types": [
+      "SupplierView"
+    ],
+    "references": [
+      "BorderPane",
+      "Button",
+      "GridPane",
+      "HBox",
+      "Insets",
+      "Label",
+      "SimpleBooleanProperty",
+      "SimpleIntegerProperty",
+      "SimpleStringProperty",
+      "Supplier",
+      "SupplierDAO",
+      "TextArea",
+      "TextField",
+      "VBox"
+    ],
+    "sql_tables": [],
+    "sha": "74cc46ce64091c544fdf65faea4b4db7b64bb28d004d9874783582899a4374b3"
+  },
+  {
+    "path": "src/main/java/module-info.java",
+    "lines": 38,
+    "types": [],
+    "references": [],
+    "sql_tables": [],
+    "sha": "363e96fcf293a366ee83d2e3a035f907ce04cf4a66b7368ac4e71e9ee41fabcd"
+  },
+  {
+    "path": "src/main/resources/css/styles.css",
+    "lines": 1064,
+    "types": [],
+    "references": [],
+    "sql_tables": [
+      "0"
+    ],
+    "sha": "55470482f550a2a96dc889608140c81634e261b6bb0f2d9cc15c7505157de626"
+  }
+]
