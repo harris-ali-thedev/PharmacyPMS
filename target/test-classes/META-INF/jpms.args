@@ -1,0 +1,4 @@
+--patch-module
+com.pharmacy=_
+--add-reads
+com.pharmacy=ALL-UNNAMED

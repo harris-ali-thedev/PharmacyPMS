@@ -1,0 +1,55 @@
+/* ═══════════════════════════════════════════════════════
+   TABLE VIEW — Row Selection & Hover
+   ═══════════════════════════════════════════════════════ */
+
+.table-view .table-row-cell:filled:selected,
+.table-view:focused .table-row-cell:filled:selected {
+    -fx-background-color: #D1D5DB;
+}
+
+.table-view .table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: #000000;
+}
+
+.table-view .table-row-cell:filled:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.table-view .table-row-cell:filled:selected:hover {
+    -fx-background-color: #B8BFC9;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   LIST VIEW — Selection & Hover
+   ═══════════════════════════════════════════════════════ */
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #D1D5DB;
+    -fx-text-fill: #000000;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.list-view .list-cell:filled:selected:hover {
+    -fx-background-color: #B8BFC9;
+    -fx-text-fill: #000000;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   COMBO BOX POPUP — Selection & Hover
+   ═══════════════════════════════════════════════════════ */
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #000000;
+}
+
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #D1D5DB;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+}

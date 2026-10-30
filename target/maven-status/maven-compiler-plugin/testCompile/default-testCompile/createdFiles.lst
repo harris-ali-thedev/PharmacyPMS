@@ -1,0 +1,4 @@
+com\pharmacy\service\StockServiceMySqlTest.class
+com\pharmacy\service\MySqlEndpointTest.class
+com\pharmacy\service\WorkflowValidationTest.class
+com\pharmacy\service\CheckoutTotalsTest.class
